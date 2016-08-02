@@ -10,9 +10,12 @@ repository = "https://github.com/maidsafe/safe_network_common"
 version = "0.7.0"
 
 [dependencies]
-clippy = {version = "~0.0.79", optional = true}
+clippy = {version = "~0.0.80", optional = true}
 maidsafe_utilities = "~0.8.0"
 rand = "~0.3.14"
 rustc-serialize = "~0.3.19"
-sodiumoxide = "=0.0.10"
-routing = "~0.23.3"
+sodiumoxide = {git = "https://github.com/Fraser999/sodiumoxide", branch = "serialise", version = "~0.0.12"}
+routing = {git = "https://github.com/Fraser999/routing", branch = "0.23_with_sodium", version = "~0.23.3"}
+
+[features]
+default = ["sodiumoxide/get-libsodium", "sodiumoxide/use-rustc-serialize"]
